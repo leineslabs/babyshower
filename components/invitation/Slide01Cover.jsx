@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import ShaderCanvas from "./ShaderCanvas";
+import LanguageSelector from "./LanguageSelector";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const flowerBouquet = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCE1UO8mAszJ16fSq3f0cqeEzJShQ4xa9fRJoo20N-ctOE1e-C93Rc5MIvvE98gSRkPsVoUVaQV1H-bFT7P1jZiXYxPRSeFKEbMGZ4F-VqkUcT4JIcu8o03B4IK62w3HG0GoF4VzA_P2ePaNx5d1Q9MnpxzBdAioIME5yjjL2AHWRo9Q360xIdBarfI34-60E-mCl_S8s3tNsIHhryEbaB6_AiCtYpPGOOessc6SI5RAv0Am8jSPXkZE76qNSvGst7lCtieQnbEKiY';
 const babyClothes = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCfbzijJlpWoVqlKWZpASv91gNZFQJEPbjtRdoU8slByAcqJJ9l7qCzLO7BoL7NkofKUtBBlBUVyPmciiGDE35U0Qx1SVkKkevhK_O6WhujyyD83o9GH9HoFbcNG-v86nMq4me08MoM_EMSguPEjvVD-FTaAsGe5qh4Wc1wEc1qpJUtZgxTWPbuQbpNB9AsVgISdu7Tm1q2OptHTfsBiIUkAhaIH0GmtFlBF1IscPCCYNY5QoGG1Yh1m67i5nCRay-P670K0O27jTg';
@@ -11,8 +13,11 @@ const butterflyAssets = [
   'https://lh3.googleusercontent.com/aida-public/AB6AXuCnhO_WkvrS_UrukAiaaXwhXvx73VBYR4qtgeRkyrrvpx58fe6TJXXUO-3R-vG6OF5FVdZy-3L30WBTmQxRLcbKzTay5hP3HZ2G53vWT8amcJXjv4y02bN44j9c6GN9uD9FWP9BhFBb_jclJ89hsU3hhXbTrXbRg8jOnBGja0mMyNANyTxE6saw2cYTPovr2TnFXCaTN63yGDGrx21h1W8ThG1D8i0W2QmTvmUdiZrpbM8LFvlSWF8y2eBVZX3FztyDHJd3Skb1xJg',
 ];
 
+const SPOTIFY_TRACK_URL =
+  "https://open.spotify.com/intl-es/track/6XDcPFkoOIq7HSYPPsISMK?si=81cfe9520fcb4b99";
+
 export default function Slide01Cover() {
-  const [isSongOpen, setIsSongOpen] = useState(false);
+  const { t } = useLanguage();
   const [butterflies, setButterflies] = useState([]);
 
   useEffect(() => {
@@ -51,7 +56,13 @@ export default function Slide01Cover() {
           <img
             src={flowerBouquet}
             alt="Flower bouquet"
-            className="h-auto w-full opacity-95"
+            className="h-auto w-full mix-blend-multiply"
+            style={{
+              WebkitMaskImage:
+                "radial-gradient(120% 120% at 20% 100%, black 55%, transparent 90%)",
+              maskImage:
+                "radial-gradient(120% 120% at 20% 100%, black 55%, transparent 90%)",
+            }}
           />
         </div>
 
@@ -78,15 +89,17 @@ export default function Slide01Cover() {
         </div>
       </div>
 
-      <main className="relative z-20 mx-auto flex min-h-screen w-full max-w-[600px] flex-col items-center justify-start gap-12 px-6 pb-12 text-center">
+      <main className="relative z-20 mx-auto flex min-h-screen w-full max-w-[600px] flex-col items-center justify-start gap-12 px-6 pb-12 pt-6 text-center">
+        <LanguageSelector />
+
         <section
           className="fade-in-up flex flex-col gap-2"
           style={{ animationDelay: "0.2s" }}
         >
           <h1 className="font-cinzel mb-4 text-4xl font-normal leading-[1.2] tracking-widest text-[#B193AB]">
             <br />
-            Baby
-            <span className="block">Nohelia</span>
+            {t.cover.titleLine1}
+            <span className="block">{t.cover.titleLine2}</span>
           </h1>
         </section>
 
@@ -108,7 +121,7 @@ export default function Slide01Cover() {
           style={{ animationDelay: "0.8s" }}
         >
           <p className="font-dancing px-4 text-[32px] font-normal leading-relaxed text-[#D28892]">
-            A beautiful baby girl is on the way
+            {t.cover.tagline}
           </p>
 
           <div className="mt-4 flex flex-col items-center gap-2">
@@ -125,50 +138,17 @@ export default function Slide01Cover() {
           </div>
         </section>
 
-        <div
-          className="fade-in-up mt-auto flex w-full flex-col items-center gap-4"
+        <a
+          href={SPOTIFY_TRACK_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="fade-in-up mt-auto inline-flex items-center gap-2 rounded-full bg-[#EDE6E8]/60 px-6 py-3 backdrop-blur-md transition-colors hover:bg-[#EDE6E8]/80"
           style={{ animationDelay: "1.2s" }}
         >
-          <button
-            type="button"
-            onClick={() => setIsSongOpen((current) => !current)}
-            className="flex cursor-pointer items-center gap-3 rounded-full bg-[#EDE6E8]/60 px-6 py-3 backdrop-blur-md"
-            aria-expanded={isSongOpen}
-          >
-            <div className="flex h-3 items-end gap-[2px] text-[#B193AB]">
-              {[0.1, 0.3, 0.2, 0.4].map((delay) => (
-                <div
-                  key={delay}
-                  className="music-bar"
-                  style={{
-                    animationDelay: `${delay}s`,
-                    animationPlayState: isSongOpen ? "running" : "paused",
-                  }}
-                />
-              ))}
-            </div>
-
-            <span className="font-montserrat text-[10px] font-semibold uppercase tracking-widest text-[#B193AB]">
-              {isSongOpen ? "Hide Our Song" : "Play Our Song"}
-            </span>
-          </button>
-
-          {isSongOpen && (
-            <div className="w-full max-w-[320px] overflow-hidden rounded-2xl shadow-[0_10px_30px_rgba(112,86,108,0.15)]">
-              <iframe
-                title="Baby Nohelia song on Spotify"
-                style={{ borderRadius: "12px" }}
-                src="https://open.spotify.com/embed/track/6XDcPFkoOIq7HSYPPsISMK?utm_source=generator&si=0ed31a5a1ce74fc5"
-                width="100%"
-                height="352"
-                frameBorder="0"
-                allowFullScreen
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-              />
-            </div>
-          )}
-        </div>
+          <span className="font-montserrat text-[10px] font-semibold uppercase tracking-widest text-[#B193AB]">
+            {t.cover.spotifyButton}
+          </span>
+        </a>
       </main>
     </section>
   );

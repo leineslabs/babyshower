@@ -1,12 +1,16 @@
 "use client";
 
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+
 const butterflyImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuA8zEtWk8nK9MB3vFa1-mYzuJT2-XPvgjhM3yeoZHFL2MC0js39uGYG0Sjx8OnjYjYI4GBrpVbr2BMuvelpjoMYwxcY8yRcbFpuOvXdfQ4UKm2EMUhJfi4jQpF6wwP7As7VaXDB08srpoCgxDO0YEju8uDXq5t2gt4eATwsYXagNy1CGKRHnm54MeKZIBsR-J6qlXQQxaUguiXoLQuPAJ_tm9tCXHcCtjcf8dRdnO4fhvKzvLmEAkfIWumR3jqWzwCN-hk-P6daezk';
 
 export default function Slide03Logistics() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="location"
-      className="font-montserrat relative flex min-h-screen flex-col items-center overflow-x-hidden bg-white text-[#1D1B1C]"
+      className="font-montserrat relative flex min-h-screen flex-col items-center overflow-x-hidden bg-[#FFF7F9] text-[#1D1B1C]"
     >
       <main className="relative flex min-h-screen w-full max-w-[600px] flex-col items-center justify-center px-6 pb-32 pt-12">
         <div className="floating-butterfly top-[15%] right-[5%] h-32 w-32">
@@ -36,7 +40,7 @@ export default function Slide03Logistics() {
         <div className="fade-in-up z-20 w-full space-y-16 text-center">
           <section>
             <p className="font-dancing text-[32px] font-normal leading-[1.4] text-[#70566C]/80">
-              Join the fun!
+              {t.logistics.eyebrow}
             </p>
 
             <div className="mx-auto mt-6 h-px w-8 bg-[#70566C]/20" />
@@ -50,7 +54,7 @@ export default function Slide03Logistics() {
                 </span>
 
                 <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#4C444A]">
-                  DATE
+                  {t.logistics.dateLabel}
                 </p>
 
                 <p className="font-cinzel text-lg font-semibold leading-[1.5] tracking-[0.1em] text-[#70566C]">
@@ -64,7 +68,7 @@ export default function Slide03Logistics() {
                 </span>
 
                 <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#4C444A]">
-                  TIME
+                  {t.logistics.timeLabel}
                 </p>
 
                 <p className="font-cinzel text-lg font-semibold leading-[1.5] tracking-[0.1em] text-[#70566C]">
@@ -82,7 +86,7 @@ export default function Slide03Logistics() {
 
               <div className="space-y-1">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#4C444A]">
-                  THE LOCATION
+                  {t.logistics.locationLabel}
                 </p>
 
                 <h2 className="font-cinzel text-3xl font-normal leading-[1.2] text-[#70566C]">
@@ -102,7 +106,7 @@ export default function Slide03Logistics() {
                 rel="noreferrer"
                 className="transition-soft group inline-flex items-center justify-center rounded-full border border-[#70566C]/30 bg-white/50 px-12 py-4 text-xs font-semibold tracking-widest text-[#70566C] hover:bg-[#70566C] hover:text-white active:scale-95"
               >
-                VIEW LOCATION
+                {t.logistics.viewLocation}
                 <span className="material-symbols-outlined ml-2 text-sm text-inherit transition-transform group-hover:translate-x-1">
                   arrow_forward
                 </span>

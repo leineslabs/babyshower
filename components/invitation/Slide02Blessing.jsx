@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import ShaderCanvas from "./ShaderCanvas";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const paradeImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCobbP2KLndKjC4uSy895939OboL_JMAMhHN7I3hqUJmD4ketDrfoPu8FOdlE5IMFxjeWfRe1Lq5MSyouFG2uUzUccE75Gw73t7dm1MmBwpMigIH--JWNfc2EAqLJl8DPd53qP12Jj2AEiGMy0eG2P8qsntBEeCMfjQVNsknZZReRIy6BGMO9oSaB7uvAtK5CzE5Xi_QbzoLZA0wKlbm3KUIVBXG8Ru_7Qo2VKZRpKzvrOu4UW09OIgvl1z5CyhyX1QmOur5zZTL3w';
 
@@ -12,6 +13,7 @@ const butterflyAssets = [
 ];
 
 export default function Slide02Blessing() {
+  const { t } = useLanguage();
   const [butterflies, setButterflies] = useState([]);
 
   useEffect(() => {
@@ -69,7 +71,7 @@ export default function Slide02Blessing() {
 
         <section className="z-10 space-y-4 text-center">
           <h1 className="font-dancing animate-fade-in text-[32px] font-normal leading-[1.4] text-[#70566C]">
-            &quot;With God&apos;s blessing, we are happy to celebrate a new bloom&quot;
+            {t.blessing.quote}
           </h1>
 
           <p className="font-cinzel animate-fade-in delay-1 text-base font-light uppercase leading-[1.6] tracking-widest text-[#7E747A]">
@@ -94,7 +96,7 @@ export default function Slide02Blessing() {
             <div className="absolute -top-4 left-1/2 h-1 w-8 -translate-x-1/2 rounded-full bg-[#70566C]/20" />
 
             <h2 className="font-montserrat text-lg font-light italic leading-[1.6] text-[#70566C]">
-              A garden of love for our little girl
+              {t.blessing.subtitle}
             </h2>
           </div>
         </section>

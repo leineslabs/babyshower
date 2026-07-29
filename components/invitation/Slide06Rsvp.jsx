@@ -1,12 +1,16 @@
 "use client";
 
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+
 const butterflyImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAkr-2qkUq9uc-k4aHQXJDZQatpO402zyuYb0t6Nj3VTDs0n6ULNjvJgFXGbmFMGB58teBWLF2p_u2FZnQPJVb2GDMYUzkdzhWLyTer7qxGk7R60_c5yaHERZ8pqdbYwkUKmQUF5A6Ow7cMCGXf9NvmOCKUIsf7D1jT80DsN35JgNG4TmVxqlmkTGceES2lruTtRbGUy3EY4D90ElBVDuVSCw51wzJjUcgDlmkwSjyMRPXDGw-jfKayD0PTPNL4dqH5u1784pjVdJ0';
 
 export default function Slide06Rsvp() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="rsvp"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-x-hidden bg-white text-[#1D1B1C]"
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-x-hidden bg-[#FFF7F9] text-[#1D1B1C]"
     >
       <main className="relative z-20 mx-auto flex min-h-screen w-full max-w-[600px] flex-col items-center justify-center px-6 pb-40 text-center">
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -29,17 +33,16 @@ export default function Slide06Rsvp() {
 
         <section className="relative z-10">
           <h1 className="fade-in mb-6 font-cinzel text-5xl font-normal leading-[1.2] tracking-widest text-[#70566C]">
-            RSVP
+            {t.rsvp.title}
           </h1>
 
           <p className="fade-in-delayed mx-auto mb-8 max-w-md font-montserrat text-lg font-light leading-relaxed text-[#70566C]">
-            Please click the RSVP button and kindly let us know if you can make
-            it!
+            {t.rsvp.body}
           </p>
 
           <div className="fade-in-delayed glass-timer mx-auto mt-6 inline-flex flex-col rounded-[32px] px-8 py-6">
             <span className="mb-1 font-montserrat text-xs font-semibold uppercase leading-none tracking-[0.2em] text-[#7E747A]">
-              BY
+              {t.rsvp.byLabel}
             </span>
             <span className="font-montserrat text-lg font-semibold leading-[1.6] text-[#1D1B1C]">
               August 15, 2026
@@ -53,17 +56,17 @@ export default function Slide06Rsvp() {
               rel="noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-[#70566C] px-12 py-4 font-montserrat text-xs font-semibold uppercase tracking-widest text-white shadow-lg shadow-[#70566C]/20 transition hover:-translate-y-0.5 hover:shadow-xl"
             >
-              Confirm RSVP
+              {t.rsvp.confirm}
             </a>
           </div>
 
           <p className="button-fade mt-16 font-dancing text-[32px] font-normal leading-[1.4] text-[#70566C]/80">
-            Thank you!
+            {t.rsvp.thankYou}
           </p>
 
           <div className="button-fade mt-8">
             <span className="mb-1 block font-montserrat text-xs font-semibold uppercase leading-none tracking-[0.2em] text-[#7E747A]">
-              CONTACT
+              {t.rsvp.contactLabel}
             </span>
             <a
               href="tel:+19805791105"

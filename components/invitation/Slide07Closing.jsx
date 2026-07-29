@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const floralTexture = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAusAit_wbEN3ZVsZsf2My6a2XwHX2ViImqZcfyTwvk7nZYqoyM3Si25cEaBe7N9ZRMbhY7bfY75R1qIEwAqRXVDFJhE_K5KoIhCiGH1Pkd4R4-LMgkuSrdP6ER5qz_qpMkkeldcvnvgR9JcSTvNO_TBq0cEvuQUVkvQzi3YxO6dQGbQusu6SNRIIxPNeHePFRFx-_T0BDyA_7K9PqM9VDRhjzPeEKtnwqHqc21zlHfZYCku4DGVWkPpfJC2DDVKsEY_ux0n0vJcgI';
 const butterflyImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAeAUuXcUtH0iCthbwCM5XXtHBPu4dezEZnhSQlv0zIgbIBPZc-bnPSgr3N_4-i0ItG1V5cguuaGlfzzNo7bYWlP9NtrpCW4UZxGBWKQ7QgiQKX2R1e6yoQQCt3n3ZJ6LDJ3bFKKBfzhN1kjz0Bw-2ADOSrjSSr0Ri3WqTo8A4xOOkO8boxNT9zwt3jqwyhl4OkLx4MErgPL_RZwQY3ucinuqg8fyQ4wZDaKmxgStXlsAlRbxa8AQZChYlllsjJ0wnr4pHc3imzH4M';
@@ -20,6 +21,7 @@ function getTimeLeft() {
 }
 
 export default function Slide07Closing() {
+  const { t } = useLanguage();
   const [timeLeft, setTimeLeft] = useState(() => getTimeLeft());
 
   useEffect(() => {
@@ -32,20 +34,20 @@ export default function Slide07Closing() {
 
   const countdown = useMemo(
     () => [
-      ["DAYS", timeLeft.days],
-      ["HRS", timeLeft.hours],
-      ["MINS", timeLeft.minutes],
+      [t.closing.days, timeLeft.days],
+      [t.closing.hrs, timeLeft.hours],
+      [t.closing.mins, timeLeft.minutes],
     ],
-    [timeLeft]
+    [timeLeft, t]
   );
 
   return (
     <section
       id="closing"
-      className="flex min-h-screen items-center justify-center overflow-hidden bg-white"
+      className="flex min-h-screen items-center justify-center overflow-hidden bg-[#FFF7F9]"
     >
       <main
-        className="relative flex min-h-screen w-full max-w-[600px] flex-col items-center justify-between bg-white px-8 pt-16 text-center"
+        className="relative flex min-h-screen w-full max-w-[600px] flex-col items-center justify-between bg-[#FFF7F9] px-8 pt-16 text-center"
         style={{ paddingBottom: "calc(7rem + env(safe-area-inset-bottom))" }}
       >
         <div className="pointer-events-none absolute left-0 top-0 h-48 w-full rotate-180 opacity-20">
@@ -102,7 +104,7 @@ export default function Slide07Closing() {
           </h1>
 
           <p className="font-dancing text-[32px] font-normal italic leading-[1.4] text-[#70566C]">
-            We can’t wait to see you there.
+            {t.closing.tagline}
           </p>
 
           <span className="material-symbols-outlined mt-6 scale-125 text-[#D28892]">
@@ -112,7 +114,7 @@ export default function Slide07Closing() {
 
         <section className="glass-timer relative z-10 w-full rounded-[32px] px-6 py-8">
           <p className="mb-6 font-montserrat text-xs font-semibold uppercase leading-none tracking-widest text-[#4C444A]">
-            Time left until the baby shower
+            {t.closing.countdownLabel}
           </p>
 
           <div className="grid grid-cols-3 gap-3">
@@ -135,7 +137,7 @@ export default function Slide07Closing() {
           </span>
 
           <p className="mb-1 font-montserrat text-xs font-semibold uppercase leading-none tracking-[0.2em] text-[#4C444A]">
-            WITH LOVE,
+            {t.closing.withLove}
           </p>
 
           <p className="font-cinzel text-2xl font-medium leading-[1.5] tracking-normal text-[#70566C]">

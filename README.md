@@ -11,6 +11,8 @@ app/
   page.jsx            # renders all 7 slides in order
   globals.css         # fonts, Tailwind, shared animations/classes
 components/invitation/
+  InvitationExperience.jsx  # wraps all slides in the language provider
+  LanguageSelector.jsx      # EN / ES pill toggle, shown on the cover
   ShaderCanvas.jsx
   Slide01Cover.jsx
   Slide02Blessing.jsx
@@ -19,10 +21,23 @@ components/invitation/
   Slide05Gifts.jsx
   Slide06Rsvp.jsx
   Slide07Closing.jsx
+lib/i18n/
+  translations.js       # en/es text dictionary, keyed per slide
+  LanguageContext.jsx    # language state + useLanguage() hook
 public/assets/        # local image/music assets
 next.config.mjs       # static export config for GitHub Pages
 .github/workflows/deploy.yml
 ```
+
+## Language / i18n
+
+The invitation defaults to English with a small pill toggle (English /
+Español) at the top of the cover slide. Selecting a language updates every
+slide's text instantly (all slides mount at once, sharing one
+`LanguageProvider`) and persists the choice in `localStorage`. Names, dates,
+addresses, and "RSVP" are intentionally not translated. To add or edit copy,
+edit `lib/i18n/translations.js` — each slide reads its strings via
+`useLanguage()` from `lib/i18n/LanguageContext.jsx`.
 
 ## Requirements
 
@@ -101,5 +116,5 @@ https://leineslabs.github.io/babyshower/client2/
 ## Known placeholders
 
 - Gift registry button in Slide 5 still needs the real registry URL.
-- The music toggle in Slide 1 opens/hides an official Spotify track embed
-  (no local audio file — nothing to host, no autoplay).
+- The music button in Slide 1 links out to the Spotify track in a new
+  tab/app (no local audio file, no embedded player, no autoplay).
