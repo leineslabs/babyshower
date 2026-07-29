@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import LanguageSelector from "./LanguageSelector";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
-const flowerBouquet =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuCE1UO8mAszJ16fSq3f0cqeEzJShQ4xa9fRJoo20N-ctOE1e-C93Rc5MIvvE98gSRkPsVoUVaQV1H-bFT7P1jZiXYxPRSeFKEbMGZ4F-VqkUcT4JIcu8o03B4IK62w3HG0GoF4VzA_P2ePaNx5d1Q9MnpxzBdAioIME5yjjL2AHWRo9Q360xIdBarfI34-60E-mCl_S8s3tNsIHhryEbaB6_AiCtYpPGOOessc6SI5RAv0Am8jSPXkZE76qNSvGst7lCtieQnbEKiY";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+const flowerBouquet = `${basePath}/assets/images/tulip-bouquet-clean.png`;
 
 const babyClothes =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuCfbzijJlpWoVqlKWZpASv91gNZFQJEPbjtRdoU8slByAcqJJ9l7qCzLO7BoL7NkofKUtBBlBUVyPmciiGDE35U0Qx1SVkKkevhK_O6WhujyyD83o9GH9HoFbcNG-v86nMq4me08MoM_EMSguPEjvVD-FTaAsGe5qh4Wc1wEc1qpJUtZgxTWPbuQbpNB9AsVgISdu7Tm1q2OptHTfsBiIUkAhaIH0GmtFlBF1IscPCCYNY5QoGG1Yh1m67i5nCRay-P670K0O27jTg";
