@@ -7,8 +7,8 @@ slides are unified into one scrollable page at `app/page.jsx`.
 
 ```txt
 app/
-  layout.jsx        # root layout, imports globals.css
-  page.jsx           # renders all 7 slides in order
+  layout.jsx          # root layout, imports globals.css
+  page.jsx            # renders all 7 slides in order
   globals.css         # fonts, Tailwind, shared animations/classes
 components/invitation/
   ShaderCanvas.jsx
@@ -19,8 +19,8 @@ components/invitation/
   Slide05Gifts.jsx
   Slide06Rsvp.jsx
   Slide07Closing.jsx
-public/assets/        # local image/music assets (not yet wired into any slide)
-next.config.mjs        # static export config for GitHub Pages
+public/assets/        # local image/music assets
+next.config.mjs       # static export config for GitHub Pages
 .github/workflows/deploy.yml
 ```
 
@@ -36,10 +36,15 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000 — runs with no basePath, exactly like a normal
-Next.js app.
+Open:
 
-## Production build (static export)
+```txt
+http://localhost:3000
+```
+
+This runs with no basePath, like a normal Next.js app.
+
+## Production build
 
 ```bash
 npm run build
@@ -47,34 +52,54 @@ npm run build
 
 This runs `next build` with `GITHUB_PAGES=true`, which enables:
 
-- `output: "export"` — outputs a static site to `out/`
+- `output: "export"`
 - `trailingSlash: true`
 - `images.unoptimized: true`
-- `basePath` / `assetPrefix` set to `/babyshower/nohelia` (see
-  `next.config.mjs`), matching the deployed URL
-  https://leineslabs.github.io/babyshower/nohelia/
+- `basePath` / `assetPrefix` set to `/babyshower/nohelia`
 
-To preview the plain (no basePath) static export locally instead, use
-`npm run build:local` followed by `npm run preview`.
+Expected deployed URL:
 
-## Deployment (GitHub Pages)
+```txt
+https://leineslabs.github.io/babyshower/nohelia/
+```
 
-Handled by `.github/workflows/deploy.yml` on every push to `main`:
+## Deployment with GitHub Pages
 
-1. Builds the site (`npm run build`, basePath baked in).
-2. Copies `out/` into `deploy/nohelia/` so it lives at the right sub-path.
+Deployment is handled by:
+
+```txt
+.github/workflows/deploy.yml
+```
+
+On every push to `main`, the workflow:
+
+1. Builds the site.
+2. Copies `out/` into `deploy/nohelia/`.
 3. Publishes `deploy/` as the GitHub Pages artifact.
 
-Repo: `leineslabs/babyshower`. Enable Pages once, under **Settings → Pages →
-Source: GitHub Actions**.
+Repo:
 
-To add another invitation later (e.g. `client2`), give it its own basePath
-(`BASE_PATH=/babyshower/client2`) and extend the workflow to copy its export
-into `deploy/client2/` alongside this one.
+```txt
+leineslabs/babyshower
+```
 
-## Known placeholders (pre-existing, not changed here)
+Enable Pages once under:
 
-- Gift registry button (Slide 5) links to `#` — needs the real Amazon
-  registry URL.
-- The music toggle (Slide 1) only switches button text/animation state; no
-  `<audio>` element or file is wired up (`public/assets/music/` is empty).
+```txt
+Settings → Pages → Source: GitHub Actions
+```
+
+## Future invitations
+
+To add another invitation later, such as `client2`, create a new route and extend
+the workflow so it publishes to:
+
+```txt
+https://leineslabs.github.io/babyshower/client2/
+```
+
+## Known placeholders
+
+- Gift registry button in Slide 5 still needs the real registry URL.
+- The music toggle in Slide 1 only switches button text/animation state. No
+  audio file is currently wired up.
