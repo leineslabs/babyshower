@@ -6,7 +6,7 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-const flowerBouquet = `${basePath}/assets/images/tulip-bouquet-clean.png`;
+const flowerBouquet = `${basePath}/assets/images/tulip-bouquet-clean.jpeg`;
 
 const babyClothes =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuCfbzijJlpWoVqlKWZpASv91gNZFQJEPbjtRdoU8slByAcqJJ9l7qCzLO7BoL7NkofKUtBBlBUVyPmciiGDE35U0Qx1SVkKkevhK_O6WhujyyD83o9GH9HoFbcNG-v86nMq4me08MoM_EMSguPEjvVD-FTaAsGe5qh4Wc1wEc1qpJUtZgxTWPbuQbpNB9AsVgISdu7Tm1q2OptHTfsBiIUkAhaIH0GmtFlBF1IscPCCYNY5QoGG1Yh1m67i5nCRay-P670K0O27jTg";
