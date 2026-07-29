@@ -89,23 +89,6 @@ export default function Slide04DressCode() {
           <div className="h-px flex-1 bg-[#CFC3CA]" />
         </div>
       </main>
-
-      <nav className="sticky bottom-0 z-50 mx-auto flex w-full max-w-[600px] items-center justify-around rounded-t-3xl bg-[#FFF7F9]/80 px-6 pb-8 pt-4 backdrop-blur-lg">
-        {[
-          ["cover", "home"],
-          ["rsvp", "event_available"],
-          ["location", "location_on"],
-          ["closing", "schedule"],
-        ].map(([target, icon]) => (
-          <a
-            key={target}
-            href={`#${target}`}
-            className="flex items-center justify-center p-3 text-[#4C444A]/40 transition-colors hover:text-[#70566C]"
-          >
-            <span className="material-symbols-outlined">{icon}</span>
-          </a>
-        ))}
-      </nav>
     </section>
   );
 }

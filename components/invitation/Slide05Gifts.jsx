@@ -64,7 +64,7 @@ export default function Slide05Gifts() {
 
             <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-white/70 px-5 py-3 text-[#70566C]">
               <span className="font-montserrat text-[10px] font-semibold tracking-widest">
-                VER MESA DE REGALOS
+                VIEW GIFT REGISTRY
               </span>
               <span className="material-symbols-outlined text-sm">
                 arrow_forward

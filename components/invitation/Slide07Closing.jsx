@@ -4,7 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 
 const floralTexture = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAusAit_wbEN3ZVsZsf2My6a2XwHX2ViImqZcfyTwvk7nZYqoyM3Si25cEaBe7N9ZRMbhY7bfY75R1qIEwAqRXVDFJhE_K5KoIhCiGH1Pkd4R4-LMgkuSrdP6ER5qz_qpMkkeldcvnvgR9JcSTvNO_TBq0cEvuQUVkvQzi3YxO6dQGbQusu6SNRIIxPNeHePFRFx-_T0BDyA_7K9PqM9VDRhjzPeEKtnwqHqc21zlHfZYCku4DGVWkPpfJC2DDVKsEY_ux0n0vJcgI';
 const butterflyImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAeAUuXcUtH0iCthbwCM5XXtHBPu4dezEZnhSQlv0zIgbIBPZc-bnPSgr3N_4-i0ItG1V5cguuaGlfzzNo7bYWlP9NtrpCW4UZxGBWKQ7QgiQKX2R1e6yoQQCt3n3ZJ6LDJ3bFKKBfzhN1kjz0Bw-2ADOSrjSSr0Ri3WqTo8A4xOOkO8boxNT9zwt3jqwyhl4OkLx4MErgPL_RZwQY3ucinuqg8fyQ4wZDaKmxgStXlsAlRbxa8AQZChYlllsjJ0wnr4pHc3imzH4M';
-const familyPhoto = 'https://lh3.googleusercontent.com/aida-public/AB6AXuB4ZH-kfqC99C04iYrf-JAKlRuBOBhsMwF5hdDqd6tybCPHsllwrzHHhAU3Aam6OZHjD00iYiRO25n3gYN2mJ6BC-RKXWlXV1qObE27TfkP01goYPYwsW1cq29bpjFv0UAKKETAX8garHpuaXFeJ2K1PEAkS9xEvd9NqY38pZGiI33CF2HXF-mpTRhtWJ9QyJPmjhCPP9jt7LstJj-OpsVhljtzd7jGQO6zkI8iM4JxS7NKHOgrpe8_nDKpZcUywSokIynya_ATHPI';
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const familyPhoto = `${basePath}/assets/images/WhatsApp%20Image%202026-07-26%20at%2020.08.47.jpeg`;
 
 function getTimeLeft() {
   const target = new Date("2026-08-29T15:00:00");
@@ -43,7 +44,10 @@ export default function Slide07Closing() {
       id="closing"
       className="flex min-h-screen items-center justify-center overflow-hidden bg-white"
     >
-      <main className="relative flex h-screen w-full max-w-[600px] flex-col items-center justify-between overflow-hidden bg-white px-8 py-16 text-center">
+      <main
+        className="relative flex min-h-screen w-full max-w-[600px] flex-col items-center justify-between bg-white px-8 pt-16 text-center"
+        style={{ paddingBottom: "calc(7rem + env(safe-area-inset-bottom))" }}
+      >
         <div className="pointer-events-none absolute left-0 top-0 h-48 w-full rotate-180 opacity-20">
           <img
             src={floralTexture}

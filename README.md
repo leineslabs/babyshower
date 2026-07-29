@@ -101,5 +101,5 @@ https://leineslabs.github.io/babyshower/client2/
 ## Known placeholders
 
 - Gift registry button in Slide 5 still needs the real registry URL.
-- The music toggle in Slide 1 only switches button text/animation state. No
-  audio file is currently wired up.
+- The music toggle in Slide 1 opens/hides an official Spotify track embed
+  (no local audio file — nothing to host, no autoplay).

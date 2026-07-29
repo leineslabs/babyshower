@@ -102,7 +102,7 @@ export default function Slide03Logistics() {
                 rel="noreferrer"
                 className="transition-soft group inline-flex items-center justify-center rounded-full border border-[#70566C]/30 bg-white/50 px-12 py-4 text-xs font-semibold tracking-widest text-[#70566C] hover:bg-[#70566C] hover:text-white active:scale-95"
               >
-                VER UBICACIÓN
+                VIEW LOCATION
                 <span className="material-symbols-outlined ml-2 text-sm text-inherit transition-transform group-hover:translate-x-1">
                   arrow_forward
                 </span>

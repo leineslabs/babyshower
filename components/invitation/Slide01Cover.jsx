@@ -12,7 +12,7 @@ const butterflyAssets = [
 ];
 
 export default function Slide01Cover() {
-  const [isMusicPlaying, setIsMusicPlaying] = useState(true);
+  const [isSongOpen, setIsSongOpen] = useState(false);
   const [butterflies, setButterflies] = useState([]);
 
   useEffect(() => {
@@ -39,11 +39,11 @@ export default function Slide01Cover() {
   return (
     <section
       id="cover"
-      className="relative min-h-screen overflow-x-hidden bg-[#FFF7F9] text-[#1D1B1C] selection:bg-[#B193AB] selection:text-[#432C40]"
+      className="relative min-h-screen overflow-hidden bg-[#FFF7F9] text-[#1D1B1C] selection:bg-[#B193AB] selection:text-[#432C40]"
     >
       <ShaderCanvas />
 
-      <div className="pointer-events-none fixed inset-0 z-10">
+      <div className="pointer-events-none absolute inset-0 z-10">
         <div
           className="fade-in-up absolute bottom-0 left-0 w-48 opacity-80 sm:w-64"
           style={{ animationDelay: "0.5s" }}
@@ -125,30 +125,50 @@ export default function Slide01Cover() {
           </div>
         </section>
 
-        <button
-          type="button"
-          onClick={() => setIsMusicPlaying((current) => !current)}
-          className="fade-in-up mt-auto flex cursor-pointer items-center gap-3 rounded-full bg-[#EDE6E8]/60 px-6 py-3 backdrop-blur-md"
+        <div
+          className="fade-in-up mt-auto flex w-full flex-col items-center gap-4"
           style={{ animationDelay: "1.2s" }}
-          aria-pressed={isMusicPlaying}
         >
-          <div className="flex h-3 items-end gap-[2px] text-[#B193AB]">
-            {[0.1, 0.3, 0.2, 0.4].map((delay) => (
-              <div
-                key={delay}
-                className="music-bar"
-                style={{
-                  animationDelay: `${delay}s`,
-                  animationPlayState: isMusicPlaying ? "running" : "paused",
-                }}
-              />
-            ))}
-          </div>
+          <button
+            type="button"
+            onClick={() => setIsSongOpen((current) => !current)}
+            className="flex cursor-pointer items-center gap-3 rounded-full bg-[#EDE6E8]/60 px-6 py-3 backdrop-blur-md"
+            aria-expanded={isSongOpen}
+          >
+            <div className="flex h-3 items-end gap-[2px] text-[#B193AB]">
+              {[0.1, 0.3, 0.2, 0.4].map((delay) => (
+                <div
+                  key={delay}
+                  className="music-bar"
+                  style={{
+                    animationDelay: `${delay}s`,
+                    animationPlayState: isSongOpen ? "running" : "paused",
+                  }}
+                />
+              ))}
+            </div>
 
-          <span className="font-montserrat text-[10px] font-semibold uppercase tracking-widest text-[#B193AB]">
-            {isMusicPlaying ? "Lullaby Playing" : "Music Paused"}
-          </span>
-        </button>
+            <span className="font-montserrat text-[10px] font-semibold uppercase tracking-widest text-[#B193AB]">
+              {isSongOpen ? "Hide Our Song" : "Play Our Song"}
+            </span>
+          </button>
+
+          {isSongOpen && (
+            <div className="w-full max-w-[320px] overflow-hidden rounded-2xl shadow-[0_10px_30px_rgba(112,86,108,0.15)]">
+              <iframe
+                title="Baby Nohelia song on Spotify"
+                style={{ borderRadius: "12px" }}
+                src="https://open.spotify.com/embed/track/6XDcPFkoOIq7HSYPPsISMK?utm_source=generator&si=0ed31a5a1ce74fc5"
+                width="100%"
+                height="352"
+                frameBorder="0"
+                allowFullScreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              />
+            </div>
+          )}
+        </div>
       </main>
     </section>
   );
