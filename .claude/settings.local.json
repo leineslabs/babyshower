@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm ls *)",
+      "Bash(npm audit *)",
+      "Bash(node -e \"const p=require\\('./node_modules/next/package.json'\\); console.log\\(JSON.stringify\\(p.optionalDependencies||{}, null, 2\\)\\)\")",
+      "Bash(npm view *)",
+      "Bash(node -e \"const v=JSON.parse\\(require\\('fs'\\).readFileSync\\(0,'utf8'\\)\\); console.log\\(v.filter\\(x=>x.startsWith\\('0.34'\\)||x.startsWith\\('0.35'\\)||x.startsWith\\('0.36'\\)\\).join\\('\\\\n'\\)\\)\")",
+      "Bash(xargs -I{} sh -c 'echo {}; grep \"\\\\\"version\\\\\"\" {}')",
+      "Bash(node -e \"const p=require\\('./node_modules/next/package.json'\\); console.log\\('deps:', JSON.stringify\\(p.dependencies?.postcss\\)\\); console.log\\('has own postcss?', require\\('fs'\\).existsSync\\('./node_modules/next/node_modules/postcss'\\)\\)\")",
+      "Bash(npm install *)",
+      "Bash(timeout 25 npx next dev -p 3411)",
+      "Bash(tee /tmp/dev_out.log)",
+      "Bash(curl -s -o /dev/null -w \"HTTP_STATUS:%{http_code}\\\\n\" http://localhost:3411/)",
+      "Read(//tmp/**)",
+      "Bash(npm run *)"
+    ]
+  }
+}

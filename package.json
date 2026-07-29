@@ -1,0 +1,25 @@
+{
+  "name": "babyshower",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "cross-env GITHUB_PAGES=true next build",
+    "build:local": "next build",
+    "preview": "npx serve out"
+  },
+  "dependencies": {
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17"
+  },
+  "overrides": {
+    "sharp": "^0.35.0"
+  }
+}
