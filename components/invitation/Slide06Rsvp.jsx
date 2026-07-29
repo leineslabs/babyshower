@@ -10,9 +10,9 @@ export default function Slide06Rsvp() {
   return (
     <section
       id="rsvp"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-x-hidden bg-[#FFF7F9] text-[#1D1B1C]"
+      className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-white text-[#1D1B1C]"
     >
-      <main className="relative z-20 mx-auto flex min-h-screen w-full max-w-[600px] flex-col items-center justify-center px-6 pb-40 text-center">
+      <main className="relative z-20 mx-auto flex min-h-[100svh] w-full max-w-[600px] flex-col items-center justify-center bg-white px-6 pb-40 text-center">
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <img
             src={butterflyImage}

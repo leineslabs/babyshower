@@ -19,10 +19,9 @@ export default function Slide04DressCode() {
   return (
     <section
       id="dress-code"
-      className="paper-texture relative flex min-h-screen flex-col items-center overflow-x-hidden bg-[#FFF7F9] text-[#1D1B1C]"
+      className="paper-texture relative flex min-h-[100svh] flex-col items-center overflow-hidden bg-white text-[#1D1B1C]"
     >
-      <nav className="sticky top-0 z-50 flex w-full items-center justify-center bg-[#FFF7F9]/80 px-6 py-4 backdrop-blur-md" />
-
+    
       <main className="relative z-10 flex w-full max-w-[600px] flex-1 flex-col items-center px-6 py-12">
         <div className="animate-sway mb-12 w-full">
           <img
@@ -86,7 +85,7 @@ export default function Slide04DressCode() {
 
         <div className="mt-14 flex w-full items-center justify-center gap-2">
           <div className="h-px flex-1 bg-[#CFC3CA]" />
-          <span className="material-symbols-outlined bg-[#FFF7F9] px-2 text-xl text-[#70566C]">
+          <span className="material-symbols-outlined bg-white px-2 text-xl text-[#70566C]">
             favorite
           </span>
           <div className="h-px flex-1 bg-[#CFC3CA]" />

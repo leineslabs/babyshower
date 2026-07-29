@@ -13,7 +13,20 @@
       "Bash(tee /tmp/dev_out.log)",
       "Bash(curl -s -o /dev/null -w \"HTTP_STATUS:%{http_code}\\\\n\" http://localhost:3411/)",
       "Read(//tmp/**)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(gh run *)",
+      "Bash(curl -s \"https://api.github.com/repos/leineslabs/babyshower/actions/runs?per_page=5\")",
+      "Bash(curl -sv \"https://api.github.com\")",
+      "WebFetch(domain:api.github.com)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(rm -rf /tmp/pages-sim)",
+      "Bash(mkdir -p /tmp/pages-sim/babyshower/nohelia)",
+      "Bash(cp -r out/. /tmp/pages-sim/babyshower/nohelia/)",
+      "Read(//tmp/pages-sim/babyshower/**)",
+      "Bash(rm -rf 'C:\\\\Users\\\\Geani\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-Geani-Projects-Leines-Labs-Working-on-Projects-Amy-Babyshower-baby-nohelia-invitation\\\\ea6a3926-e935-4da3-af51-0c66ab6a58e2\\\\scratchpad\\\\pages-sim')",
+      "Bash(mkdir -p 'C:\\\\Users\\\\Geani\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-Geani-Projects-Leines-Labs-Working-on-Projects-Amy-Babyshower-baby-nohelia-invitation\\\\ea6a3926-e935-4da3-af51-0c66ab6a58e2\\\\scratchpad\\\\pages-sim/babyshower/nohelia')",
+      "Bash(cp -r out/. 'C:\\\\Users\\\\Geani\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-Geani-Projects-Leines-Labs-Working-on-Projects-Amy-Babyshower-baby-nohelia-invitation\\\\ea6a3926-e935-4da3-af51-0c66ab6a58e2\\\\scratchpad\\\\pages-sim/babyshower/nohelia/')"
     ]
   }
 }

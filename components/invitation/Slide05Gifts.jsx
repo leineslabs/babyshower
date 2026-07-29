@@ -11,11 +11,11 @@ export default function Slide05Gifts() {
   return (
     <section
       id="gifts"
-      className="font-montserrat relative min-h-screen overflow-x-hidden bg-[#FFF7F9] text-[#1D1B1C]"
+      className="font-montserrat relative min-h-[100svh] overflow-hidden bg-white text-[#1D1B1C]"
     >
-      <div className="paper-texture pointer-events-none fixed inset-0 z-0 opacity-20" />
+      <div className="paper-texture pointer-events-none absolute inset-0 z-0 opacity-10" />
 
-      <main className="relative z-10 mx-auto flex min-h-screen w-full max-w-[600px] flex-col items-center bg-[#FFF7F9] px-6 pb-32">
+      <main className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[600px] flex-col items-center bg-white px-6 pb-32">
         <header className="relative flex w-full justify-center pb-8 pt-12">
           <img
             src={butterflyImage}

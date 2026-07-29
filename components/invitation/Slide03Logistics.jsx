@@ -10,9 +10,9 @@ export default function Slide03Logistics() {
   return (
     <section
       id="location"
-      className="font-montserrat relative flex min-h-screen flex-col items-center overflow-x-hidden bg-[#FFF7F9] text-[#1D1B1C]"
+      className="font-montserrat relative flex min-h-[100svh] flex-col items-center overflow-hidden bg-white text-[#1D1B1C]"
     >
-      <main className="relative flex min-h-screen w-full max-w-[600px] flex-col items-center justify-center px-6 pb-32 pt-12">
+      <main className="relative flex min-h-[100svh] w-full max-w-[600px] flex-col items-center justify-center bg-white px-6 pb-32 pt-12">
         <div className="floating-butterfly top-[15%] right-[5%] h-32 w-32">
           <img
             src={butterflyImage}
@@ -90,18 +90,18 @@ export default function Slide03Logistics() {
                 </p>
 
                 <h2 className="font-cinzel text-3xl font-normal leading-[1.2] text-[#70566C]">
-                  Lopez House
+                  Robbins Recreation Center
                 </h2>
 
                 <p className="text-base font-light leading-[1.6] text-[#655E46]/80">
-                  Lexington, NC
+                  512 Hargrave St, Lexington, NC
                 </p>
               </div>
             </div>
 
             <div className="pt-6">
               <a
-                href="https://maps.google.com/?q=Lexington%2C%20NC"
+                href="https://maps.app.goo.gl/oc9nc1fQsBDhq9Xm7"
                 target="_blank"
                 rel="noreferrer"
                 className="transition-soft group inline-flex items-center justify-center rounded-full border border-[#70566C]/30 bg-white/50 px-12 py-4 text-xs font-semibold tracking-widest text-[#70566C] hover:bg-[#70566C] hover:text-white active:scale-95"

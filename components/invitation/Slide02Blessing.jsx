@@ -42,11 +42,11 @@ export default function Slide02Blessing() {
   return (
     <section
       id="blessing"
-      className="relative flex min-h-screen items-center justify-center overflow-x-hidden bg-[#FFF7F9]"
+      className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-white"
     >
       <ShaderCanvas />
 
-      <main className="relative z-10 mx-auto flex min-h-screen w-full max-w-[600px] flex-col justify-between overflow-hidden bg-transparent px-6 py-16 md:shadow-none">
+      <main className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[600px] flex-col justify-between overflow-hidden bg-white px-6 py-16 md:shadow-none">
         <div className="pointer-events-none absolute inset-0">
           {butterflies.map((butterfly) => (
             <div
@@ -84,7 +84,8 @@ export default function Slide02Blessing() {
             <img
               src={paradeImage}
               alt="Whimsical baby parade"
-              className="animate-float h-auto max-w-full object-contain mix-blend-multiply"
+              className="animate-float h-auto max-w-full object-contain"
+              style={{ filter: "brightness(1.06) saturate(1.06)" }}
             />
 
             <div className="absolute inset-0 -z-10 scale-75 rounded-full bg-[#70566C]/5 opacity-30 blur-3xl" />

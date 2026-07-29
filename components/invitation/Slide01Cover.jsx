@@ -1,16 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import ShaderCanvas from "./ShaderCanvas";
 import LanguageSelector from "./LanguageSelector";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
-const flowerBouquet = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCE1UO8mAszJ16fSq3f0cqeEzJShQ4xa9fRJoo20N-ctOE1e-C93Rc5MIvvE98gSRkPsVoUVaQV1H-bFT7P1jZiXYxPRSeFKEbMGZ4F-VqkUcT4JIcu8o03B4IK62w3HG0GoF4VzA_P2ePaNx5d1Q9MnpxzBdAioIME5yjjL2AHWRo9Q360xIdBarfI34-60E-mCl_S8s3tNsIHhryEbaB6_AiCtYpPGOOessc6SI5RAv0Am8jSPXkZE76qNSvGst7lCtieQnbEKiY';
-const babyClothes = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCfbzijJlpWoVqlKWZpASv91gNZFQJEPbjtRdoU8slByAcqJJ9l7qCzLO7BoL7NkofKUtBBlBUVyPmciiGDE35U0Qx1SVkKkevhK_O6WhujyyD83o9GH9HoFbcNG-v86nMq4me08MoM_EMSguPEjvVD-FTaAsGe5qh4Wc1wEc1qpJUtZgxTWPbuQbpNB9AsVgISdu7Tm1q2OptHTfsBiIUkAhaIH0GmtFlBF1IscPCCYNY5QoGG1Yh1m67i5nCRay-P670K0O27jTg';
+const flowerBouquet =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuCE1UO8mAszJ16fSq3f0cqeEzJShQ4xa9fRJoo20N-ctOE1e-C93Rc5MIvvE98gSRkPsVoUVaQV1H-bFT7P1jZiXYxPRSeFKEbMGZ4F-VqkUcT4JIcu8o03B4IK62w3HG0GoF4VzA_P2ePaNx5d1Q9MnpxzBdAioIME5yjjL2AHWRo9Q360xIdBarfI34-60E-mCl_S8s3tNsIHhryEbaB6_AiCtYpPGOOessc6SI5RAv0Am8jSPXkZE76qNSvGst7lCtieQnbEKiY";
+
+const babyClothes =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuCfbzijJlpWoVqlKWZpASv91gNZFQJEPbjtRdoU8slByAcqJJ9l7qCzLO7BoL7NkofKUtBBlBUVyPmciiGDE35U0Qx1SVkKkevhK_O6WhujyyD83o9GH9HoFbcNG-v86nMq4me08MoM_EMSguPEjvVD-FTaAsGe5qh4Wc1wEc1qpJUtZgxTWPbuQbpNB9AsVgISdu7Tm1q2OptHTfsBiIUkAhaIH0GmtFlBF1IscPCCYNY5QoGG1Yh1m67i5nCRay-P670K0O27jTg";
 
 const butterflyAssets = [
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuB4Vn_7sLs-xGVsGm76bDe9cu0oRtOKk1L_c2FARYrSZFCobYwewGK4WYLOH608unsWqYre_jrnyLlBQM6fUvc81IoJ26jzsVZRDBr0S3-vWiw6kYO0f-hlKjep9cTTlAbidvgtK6Wcv-9UF3LMFij3DAzKAjSHpAxTRNaagvQggT-Ou-84QEqaLorKKm27CD78VH9YQcreoUQzWLtZdbMYQCreDmzHHyXMLO05dxdexvXX2ynEBMQTUayHYtHkAfLQ5Zra_inZRnc',
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuCnhO_WkvrS_UrukAiaaXwhXvx73VBYR4qtgeRkyrrvpx58fe6TJXXUO-3R-vG6OF5FVdZy-3L30WBTmQxRLcbKzTay5hP3HZ2G53vWT8amcJXjv4y02bN44j9c6GN9uD9FWP9BhFBb_jclJ89hsU3hhXbTrXbRg8jOnBGja0mMyNANyTxE6saw2cYTPovr2TnFXCaTN63yGDGrx21h1W8ThG1D8i0W2QmTvmUdiZrpbM8LFvlSWF8y2eBVZX3FztyDHJd3Skb1xJg',
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuB4Vn_7sLs-xGVsGm76bDe9cu0oRtOKk1L_c2FARYrSZFCobYwewGK4WYLOH608unsWqYre_jrnyLlBQM6fUvc81IoJ26jzsVZRDBr0S3-vWiw6kYO0f-hlKjep9cTTlAbidvgtK6Wcv-9UF3LMFij3DAzKAjSHpAxTRNaagvQggT-Ou-84QEqaLorKKm27CD78VH9YQcreoUQzWLtZdbMYQCreDmzHHyXMLO05dxdexvXX2ynEBMQTUayHYtHkAfLQ5Zra_inZRnc",
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuCnhO_WkvrS_UrukAiaaXwhXvx73VBYR4qtgeRkyrrvpx58fe6TJXXUO-3R-vG6OF5FVdZy-3L30WBTmQxRLcbKzTay5hP3HZ2G53vWT8amcJXjv4y02bN44j9c6GN9uD9FWP9BhFBb_jclJ89hsU3hhXbTrXbRg8jOnBGja0mMyNANyTxE6saw2cYTPovr2TnFXCaTN63yGDGrx21h1W8ThG1D8i0W2QmTvmUdiZrpbM8LFvlSWF8y2eBVZX3FztyDHJd3Skb1xJg",
 ];
 
 const SPOTIFY_TRACK_URL =
@@ -44,75 +46,90 @@ export default function Slide01Cover() {
   return (
     <section
       id="cover"
-      className="relative min-h-screen overflow-hidden bg-[#FFF7F9] text-[#1D1B1C] selection:bg-[#B193AB] selection:text-[#432C40]"
+      className="relative isolate min-h-[100svh] overflow-hidden bg-white text-[#1D1B1C] selection:bg-[#B193AB] selection:text-[#432C40]"
     >
-      <ShaderCanvas />
+      {/* Soft white background, no ShaderCanvas on cover to avoid gray/pink mobile artifacts */}
+      <div className="pointer-events-none absolute inset-0 z-0 bg-white" />
 
-      <div className="pointer-events-none absolute inset-0 z-10">
+      {/* Very subtle romantic glow, kept white/pale so transitions remain smooth */}
+      <div className="pointer-events-none absolute inset-0 z-0 bg-white" />
+
+      {/* Decorative elements are clipped inside cover only */}
+      <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
+        {/* Flowers: no mix-blend-multiply, no mask, no gray square */}
         <div
-          className="fade-in-up absolute bottom-0 left-0 w-48 opacity-80 sm:w-64"
+          className="fade-in-up absolute bottom-[6.5rem] left-[-1.25rem] w-40 sm:bottom-8 sm:left-0 sm:w-64"
           style={{ animationDelay: "0.5s" }}
+        >
+      <div
+          className="overflow-hidden"
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(to top, black 0%, black 62%, transparent 100%)",
+            maskImage:
+              "linear-gradient(to top, black 0%, black 62%, transparent 100%)",
+          }}
         >
           <img
             src={flowerBouquet}
-            alt="Flower bouquet"
-            className="h-auto w-full mix-blend-multiply"
+            alt=""
+            aria-hidden="true"
+            className="h-auto w-full object-contain"
             style={{
-              WebkitMaskImage:
-                "radial-gradient(120% 120% at 20% 100%, black 55%, transparent 90%)",
-              maskImage:
-                "radial-gradient(120% 120% at 20% 100%, black 55%, transparent 90%)",
+              filter: "brightness(1.06) saturate(1.08)",
             }}
           />
         </div>
-
-        <div>
-          {butterflies.map((butterfly) => (
-            <div
-              key={butterfly.id}
-              className="butterfly"
-              style={{
-                left: butterfly.left,
-                top: butterfly.top,
-                animation: butterfly.animation,
-              }}
-            >
-              <div className="butterfly-inner">
-                <img
-                  src={butterfly.src}
-                  alt=""
-                  className="h-auto w-full object-contain opacity-70"
-                />
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
 
-      <main className="relative z-20 mx-auto flex min-h-screen w-full max-w-[600px] flex-col items-center justify-start gap-12 px-6 pb-12 pt-6 text-center">
+        {butterflies.map((butterfly) => (
+          <div
+            key={butterfly.id}
+            className="butterfly"
+            style={{
+              left: butterfly.left,
+              top: butterfly.top,
+              animation: butterfly.animation,
+            }}
+          >
+            <div className="butterfly-inner">
+              <img
+                src={butterfly.src}
+                alt=""
+                aria-hidden="true"
+                className="h-auto w-full object-contain opacity-70"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <main className="relative z-20 mx-auto flex min-h-[100svh] w-full max-w-[600px] flex-col items-center justify-start gap-10 px-6 pb-28 pt-6 text-center">
         <LanguageSelector />
 
         <section
           className="fade-in-up flex flex-col gap-2"
           style={{ animationDelay: "0.2s" }}
         >
-          <h1 className="font-cinzel mb-4 text-4xl font-normal leading-[1.2] tracking-widest text-[#B193AB]">
-            <br />
-            {t.cover.titleLine1}
+          <h1 className="font-cinzel mb-2 text-4xl font-normal leading-[1.2] tracking-widest text-[#B193AB]">
+            <span className="block">{t.cover.titleLine1}</span>
             <span className="block">{t.cover.titleLine2}</span>
           </h1>
         </section>
 
         <section
-          className="fade-in-up relative flex aspect-[4/3] w-full items-center justify-center"
+          className="fade-in-up relative flex aspect-[4/3] w-full max-w-[430px] items-center justify-center"
           style={{ animationDelay: "0.4s" }}
         >
-          <div className="absolute inset-0 -z-10 rounded-full bg-[#B193AB]/10 blur-3xl" />
+          <div className="absolute inset-0 -z-10 rounded-full bg-[#B193AB]/8 blur-3xl" />
 
           <img
             src={babyClothes}
             alt="Delicate baby clothes hanging on a clothesline"
             className="float-slow h-full w-full object-contain"
+            style={{
+              filter: "brightness(1.04) saturate(1.06)",
+            }}
           />
         </section>
 
@@ -120,7 +137,7 @@ export default function Slide01Cover() {
           className="fade-in-up flex flex-col gap-2"
           style={{ animationDelay: "0.8s" }}
         >
-          <p className="font-dancing px-4 text-[32px] font-normal leading-relaxed text-[#D28892]">
+          <p className="font-dancing px-3 text-[32px] font-normal leading-relaxed text-[#D28892]">
             {t.cover.tagline}
           </p>
 
@@ -142,10 +159,11 @@ export default function Slide01Cover() {
           href={SPOTIFY_TRACK_URL}
           target="_blank"
           rel="noreferrer"
-          className="fade-in-up mt-auto inline-flex items-center gap-2 rounded-full bg-[#EDE6E8]/60 px-6 py-3 backdrop-blur-md transition-colors hover:bg-[#EDE6E8]/80"
+          className="fade-in-up inline-flex items-center gap-2 rounded-full bg-[#F7EEF3]/80 px-6 py-3 shadow-[0_10px_30px_rgba(177,147,171,0.18)] backdrop-blur-md transition-colors hover:bg-[#F2E4EC]"
           style={{ animationDelay: "1.2s" }}
         >
-          <span className="font-montserrat text-[10px] font-semibold uppercase tracking-widest text-[#B193AB]">
+          <span className="text-sm leading-none text-[#B193AB]">♫</span>
+          <span className="font-montserrat text-[10px] font-semibold uppercase tracking-widest text-[#8F7088]">
             {t.cover.spotifyButton}
           </span>
         </a>
