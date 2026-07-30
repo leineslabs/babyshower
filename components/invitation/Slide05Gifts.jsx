@@ -4,6 +4,8 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const butterflyImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuA9d0AAre369hNO6glcp8DQTu3zdrI0ZHTSC1JkP4d6qIzrREwWWXEMLOHTaLWmQcJb-s_VmKflmdrRemnXY840r1Vy9Gh0aAS_pBrCXLI11HnjbzVS37P7RPQLdxr-D9cEuzSc1Fo-wxKJy2ZiQAN_8zJwc9eij2BEyAHJcqWcTOh90DFm9muv-odw1e0DdfYe8jzSdWOmYDkXqgXuZYwC1Ghltb4-eEGB4CWBAYH8sWdsiGhws-zzcakBZHDzs1n0rpA6y7z1keM';
 const elephantGiftImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuC3AH9iEYGmyW6hSNqEwSr1qBIkacEnz_ybKPQjGfN2Hj7thKHke8wXnNr0pIEVa-3wAPb-83Zw7KnWpvxjvFa38jP7lTfYhmfDauivGmRxatv-y-f0EP7UsoOzmsP-VR_4RamsBC7IvDakth0koLoVdhGczCsVTjEBQmMkGXL0ArTw9CSZqQyE10gNgPAtVAdH6sxdvYHL2BD4Eqa528-Kgw_5d0tCzhfz3Z8WTrYiuzco8wL0J3sgtRgl9UkkNtDz6WoOpW_q8L8';
+const AMAZON_REGISTRY_URL =
+  "https://www.amazon.com/baby-reg/alejandra-bohorquez-october-2026-lexington/V7VJRYPG0OQT?ref_=cm_sw_r_apin_dp_1PV0DGKMK4W9DNH945SC&language=en-US";
 
 export default function Slide05Gifts() {
   const { t } = useLanguage();
@@ -55,7 +57,9 @@ export default function Slide05Gifts() {
           </p>
 
           <a
-            href="#"
+            href={AMAZON_REGISTRY_URL}
+            target="_blank"
+            rel="noreferrer"
             className="watercolor-shadow group relative mt-10 block overflow-hidden rounded-xl border border-white bg-[#F9F2F4] p-8 transition-all hover:scale-[1.02]"
           >
             <span className="material-symbols-outlined mb-3 scale-110 text-[#70566C]">
